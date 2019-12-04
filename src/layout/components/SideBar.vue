@@ -2,38 +2,41 @@
   <div class="sidebar-wrapper">
     <el-menu
       :collapse="isCollapse"
-      default-active="/menu1/home"
+      :default-active="activeIndex"
       unique-opened
       router
       text-color="#fff"
       active-text-color="#ffd04b"
       background-color="#1f2b41"
       >
-      <el-menu-item index="/menu1/home">
+      <el-menu-item v-for="item in menu.children" :key="item.path" :index="item.path">
         <i class="el-icon-menu"></i>
-        <span slot="title">首页</span>
-      </el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航一</span>
-        </template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="/menu1/about">
-        <i class="el-icon-setting"></i>
-        <span slot="title">关于</span>
+        <span slot="title">{{item.title}}</span>
       </el-menu-item>
     </el-menu>
   </div>
 </template>
 <script>
+import Menus from '@src/menu.json';
+
 export default {
   data() {
     return {
       isCollapse: false,
+      menu: {},
+      activeIndex: '',
     };
+  },
+  watch: {
+    $route: {
+      handler(val) {
+        if (val.matched[1]) {
+          this.menu = Menus.find(item => item.name === val.matched[1].meta.name);
+          this.activeIndex = val.fullPath;
+        }
+      },
+      immediate: true,
+    },
   },
 };
 </script>

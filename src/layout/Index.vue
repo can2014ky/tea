@@ -2,7 +2,7 @@
   <div class="layout-wrapper">
     <el-container>
       <el-header>
-        <HeaderNav />
+        <HeaderNav/>
       </el-header>
       <el-container class="container-wrapper">
         <el-aside width="200px">

@@ -12,20 +12,31 @@
         background-color="#0a202e"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item index="/menu1">菜单一</el-menu-item>
-        <el-menu-item index="/menu2">菜单二</el-menu-item>
+        <el-menu-item
+          v-for="item in menu"
+          :key="item.path"
+          :index="item.path"
+        >{{item.title}}
+        </el-menu-item>
       </el-menu>
       <span>登录</span>
     </div>
   </div>
 </template>
 <script>
+import Menus from '@src/menu.json';
+
 export default {
   data() {
     return {
       logo: require('@src/assets/logo.png'),
-      activeIndex: '/menu1',
+      menu: Menus,
     };
+  },
+  computed: {
+    activeIndex() {
+      return `/${this.$route.fullPath.split('/')[1]}`;
+    },
   },
   methods: {
     handleSelect() {},

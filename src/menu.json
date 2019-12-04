@@ -1,0 +1,34 @@
+[
+  {
+    "path": "/menu1",
+    "title": "菜单一",
+    "name": "menu1",
+    "default-path": "/menu1/home",
+    "children": [
+      {
+        "path": "/menu1/home",
+        "title": "首页"
+      },
+      {
+        "path": "/menu1/about",
+        "title": "关于"
+      }
+    ]
+  },
+  {
+    "path": "/menu2",
+    "title": "菜单二",
+    "name": "menu2",
+    "default-path": "/menu2/eat",
+    "children": [
+      {
+        "path": "/menu2/eat",
+        "title": "吃饭"
+      },
+      {
+        "path": "/menu2/study",
+        "title": "学习"
+      }
+    ]
+  }
+]
