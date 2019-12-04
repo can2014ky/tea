@@ -1,12 +1,15 @@
 <template>
   <div class="sidebar-wrapper">
     <el-menu
-      default-active="1"
-      @open="handleOpen"
-      @close="handleClose"
       :collapse="isCollapse"
-      class="menu">
-      <el-menu-item index="1">
+      default-active="/home"
+      unique-opened
+      router
+      text-color="#fff"
+      active-text-color="#ffd04b"
+      background-color="#1f2b41"
+      >
+      <el-menu-item index="/home">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
       </el-menu-item>
@@ -27,7 +30,7 @@
           <el-menu-item index="3-2">选项2</el-menu-item>
           <el-menu-item index="3-3">选项3</el-menu-item>
       </el-submenu>
-      <el-menu-item index="4">
+      <el-menu-item index="/about">
         <i class="el-icon-setting"></i>
         <span slot="title">关于</span>
       </el-menu-item>
@@ -41,37 +44,11 @@ export default {
       isCollapse: false,
     };
   },
-  methods: {
-    handleOpen() {
-
-    },
-    handleClose() {
-
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>
   .sidebar-wrapper {
     background-color: #1f2b41;
     height: 100%;
-    ::v-deep .el-menu {
-      background-color: inherit;
-      .el-submenu__title {
-        color: #fff;
-        &:hover {
-          background-color: #2a4660;
-        }
-      }
-      .el-menu-item {
-        color: #fff;
-        &:hover {
-          background-color: #2a4660;
-        }
-      }
-      .el-menu-item:focus, .el-menu-item:hover {
-        background-color: #2a4660;
-      }
-    }
   }
 </style>
