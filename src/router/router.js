@@ -1,8 +1,14 @@
 import Layout from '@src/layout/Index.vue';
 
 const Error = () => import(/* webpackChunkName: "error" */ '@src/views/error/404.vue');
-const Home = () => import(/* webpackChunkName: "home" */ '@src/views/home/Home.vue');
-const About = () => import(/* webpackChunkName: "home" */ '@src/views/about/About.vue');
+
+const Menu1 = () => import(/* webpackChunkName: "menu1" */ '@src/views/menu1/Index.vue');
+const Home = () => import(/* webpackChunkName: "menu1" */ '@src/views/menu1/home/Home.vue');
+const About = () => import(/* webpackChunkName: "menu1" */ '@src/views/menu1/about/About.vue');
+
+const Menu2 = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/Index.vue');
+const Eat = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/eat/Index.vue');
+const Study = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/study/Index.vue');
 
 export default [
   {
@@ -11,25 +17,71 @@ export default [
     children: [
       {
         path: '',
-        redirect: 'home',
+        redirect: 'menu1',
       },
       {
-        path: '/home',
-        name: 'home',
-        component: Home,
+        path: 'menu1',
+        component: Menu1,
         meta: {
-          name: 'home',
-          title: '首页',
+          name: 'menu1',
+          title: '菜单一',
         },
+        children: [
+          {
+            path: '',
+            redirect: 'home',
+          },
+          {
+            path: 'home',
+            name: 'home',
+            component: Home,
+            meta: {
+              name: 'home',
+              title: '首页',
+            },
+          },
+          {
+            path: 'about',
+            name: 'about',
+            component: About,
+            meta: {
+              name: 'about',
+              title: '关于',
+            },
+          },
+        ],
       },
       {
-        path: '/about',
-        name: 'about',
-        component: About,
+        path: 'menu2',
+        component: Menu2,
         meta: {
-          name: 'about',
-          title: '关于',
+          name: 'menu2',
+          title: '菜单二',
         },
+        children: [
+          {
+            path: '',
+            redirect: 'eat',
+          },
+          {
+            path: 'eat',
+            name: 'eat',
+            component: Eat,
+            meta: {
+              name: 'eat',
+              title: '吃饭',
+            },
+          },
+          {
+            path: 'study',
+            name: 'study',
+            component: Study,
+            meta: {
+              name: 'study',
+              title: '学习',
+            },
+          },
+        ],
       },
     ],
   },
