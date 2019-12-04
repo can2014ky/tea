@@ -9,10 +9,24 @@
       active-text-color="#ffd04b"
       background-color="#1f2b41"
       >
-      <el-menu-item v-for="item in menu.children" :key="item.path" :index="item.path">
-        <i class="el-icon-menu"></i>
-        <span slot="title">{{item.title}}</span>
-      </el-menu-item>
+      <template v-for="item in menu.children">
+        <el-menu-item v-if="!item.children" :key="item.path" :index="item.path">
+          <i class="el-icon-menu"></i>
+          <span slot="title">{{item.title}}</span>
+        </el-menu-item>
+        <el-submenu v-else :key="item.path" :index="item.path">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span slot="title">{{item.title}}</span>
+          </template>
+            <el-menu-item
+              v-for="submenu in item.children"
+              :key="submenu.path"
+              :index="submenu.path"
+            >{{submenu.title}}
+            </el-menu-item>
+        </el-submenu>
+      </template>
     </el-menu>
   </div>
 </template>

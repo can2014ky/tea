@@ -8,6 +8,8 @@ const About = () => import(/* webpackChunkName: "menu1" */ '@src/views/menu1/abo
 
 const Menu2 = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/Index.vue');
 const Eat = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/eat/Index.vue');
+const Tomato = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/eat/Tomato.vue');
+const Potato = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/eat/Potato.vue');
 const Study = () => import(/* webpackChunkName: "menu2" */ '@src/views/menu2/study/Index.vue');
 
 export default [
@@ -65,12 +67,35 @@ export default [
           },
           {
             path: 'eat',
-            name: 'eat',
             component: Eat,
             meta: {
               name: 'eat',
               title: '吃饭',
             },
+            children: [
+              {
+                path: '',
+                redirect: 'tomato',
+              },
+              {
+                path: 'tomato',
+                name: 'tomato',
+                component: Tomato,
+                meta: {
+                  name: 'tomato',
+                  title: '番茄',
+                },
+              },
+              {
+                path: 'potato',
+                name: 'potato',
+                component: Potato,
+                meta: {
+                  name: 'potato',
+                  title: '土豆',
+                },
+              },
+            ],
           },
           {
             path: 'study',

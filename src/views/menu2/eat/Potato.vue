@@ -1,5 +1,5 @@
 <template>
   <div>
-    <router-view></router-view>
+    土豆
   </div>
 </template>

@@ -19,11 +19,21 @@
     "path": "/menu2",
     "title": "菜单二",
     "name": "menu2",
-    "default-path": "/menu2/eat",
+    "default-path": "/menu2/eat/tomato",
     "children": [
       {
         "path": "/menu2/eat",
-        "title": "吃饭"
+        "title": "吃饭",
+        "children": [
+          {
+            "path": "/menu2/eat/tomato",
+            "title": "番茄"
+          },
+          {
+            "path": "/menu2/eat/potato",
+            "title": "土豆"
+          }
+        ]
       },
       {
         "path": "/menu2/study",
