@@ -44,5 +44,8 @@ export default {
   .sidebar-wrapper {
     background-color: #1f2b41;
     height: 100%;
+    ::v-deep .el-menu {
+      border-right: none;
+    }
   }
 </style>
