@@ -12,8 +12,7 @@
 export default {
   data() {
     return {
-      logo: '',
-      // logo: require('@src/assets/logo.png'),
+      logo: require('@src/assets/logo.png'),
     };
   },
 };

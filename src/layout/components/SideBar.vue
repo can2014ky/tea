@@ -13,19 +13,19 @@
       <el-submenu index="2">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">资产维护</span>
+          <span slot="title">导航一</span>
         </template>
-          <el-menu-item index="2-1">资产列表</el-menu-item>
-          <el-menu-item index="2-2">服务列表</el-menu-item>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-document"></i>
-          <span slot="title">资产配置</span>
+          <span slot="title">导航二</span>
         </template>
-          <el-menu-item index="3-1">资产组维护</el-menu-item>
-          <el-menu-item index="3-2">资产白名单</el-menu-item>
-          <el-menu-item index="3-3">端口组配置</el-menu-item>
+          <el-menu-item index="3-1">选项1</el-menu-item>
+          <el-menu-item index="3-2">选项2</el-menu-item>
+          <el-menu-item index="3-3">选项3</el-menu-item>
       </el-submenu>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
