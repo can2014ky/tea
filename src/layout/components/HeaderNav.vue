@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import Menus from '@src/menu.json';
+import Menus from './menu.json';
 
 export default {
   data() {
