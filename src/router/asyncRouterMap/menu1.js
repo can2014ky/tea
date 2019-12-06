@@ -12,7 +12,7 @@ export default {
   children: [
     {
       path: '',
-      redirect: 'home',
+      redirect: { name: 'home' },
     },
     {
       path: 'home',

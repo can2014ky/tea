@@ -14,7 +14,7 @@ export default {
   children: [
     {
       path: '',
-      redirect: 'eat',
+      redirect: { name: 'tomato' },
     },
     {
       path: 'eat',
@@ -26,7 +26,7 @@ export default {
       children: [
         {
           path: '',
-          redirect: 'tomato',
+          redirect: { name: 'tomato' },
         },
         {
           path: 'tomato',
