@@ -50,4 +50,9 @@ module.exports = {
       })
       .end();
   },
+  pluginOptions: {
+    webpackBundleAnalyzer: {
+      openAnalyzer: false,
+    },
+  },
 };
