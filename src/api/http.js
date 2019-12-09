@@ -56,8 +56,12 @@ const instance = axios.create(defaultConfig);
 
 // 请求拦截
 instance.interceptors.request.use((config) => {
-  // const route = router.currentRoute;
+  const route = router.currentRoute;
+  const isRequiresAuth = route.matched.some(record => record.meta.requiresAuth);
   const token = getToken() || '233'; // 暂时屏蔽！！！
+  if (!isRequiresAuth) {
+    return config;
+  }
   if (token) {
     // eslint-disable-next-line no-param-reassign
     config.headers.Authorization = token;
@@ -69,7 +73,6 @@ instance.interceptors.request.use((config) => {
   return config;
 },
 (error) => {
-  console.error(error);
   Promise.error(error);
 });
 

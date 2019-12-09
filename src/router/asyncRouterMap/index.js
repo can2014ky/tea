@@ -8,6 +8,9 @@ export default [
   {
     path: '/',
     component: Layout,
+    meta: {
+      requiresAuth: true,
+    },
     children: [
       {
         path: '',
