@@ -5,7 +5,12 @@
 </template>
 
 <script>
+import { getBanner } from '@src/api/request/menu1';
+
 export default {
   name: 'home',
+  created() {
+    getBanner();
+  },
 };
 </script>
