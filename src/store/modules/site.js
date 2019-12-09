@@ -1,5 +1,5 @@
 const stat = {
-  isSideMenuCollapse: false,
+  isSideMenuCollapse: true,
 };
 
 const mutations = {

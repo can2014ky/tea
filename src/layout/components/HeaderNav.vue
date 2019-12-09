@@ -1,8 +1,8 @@
 <template>
   <div class="headernav-wrapper">
-    <div @click="onCollapse" class="left" :class="isSideMenuCollapse ? '' : 'collapseClass'">
-      <img v-if="isSideMenuCollapse"  :src="logo" alt="">
-      <img v-else :src="logoSmall" alt="">
+    <div @click="onCollapse" class="left" :class="isSideMenuCollapse ? 'collapseClass' : ''">
+      <img v-if="isSideMenuCollapse" :src="logoSmall" alt="">
+      <img v-else :src="logo" alt="">
     </div>
     <div class="right">
       <el-menu

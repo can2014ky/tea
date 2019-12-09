@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-wrapper">
     <el-menu
-      :collapse="!isSideMenuCollapse"
+      :collapse="isSideMenuCollapse"
       :default-active="activeIndex"
       unique-opened
       router

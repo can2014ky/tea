@@ -30,7 +30,7 @@ export default {
   computed: {
     ...mapState('site', ['isSideMenuCollapse']),
     width() {
-      return this.isSideMenuCollapse ? '200px' : '64px';
+      return this.isSideMenuCollapse ? '64px' : '200px';
     },
   },
 };
