@@ -1,7 +1,8 @@
 <template>
   <div class="headernav-wrapper">
-    <div class="left">
-      <img :src="logo" alt="">
+    <div @click="onCollapse" class="left" :class="isSideMenuCollapse ? '' : 'collapseClass'">
+      <img v-if="isSideMenuCollapse"  :src="logo" alt="">
+      <img v-else :src="logoSmall" alt="">
     </div>
     <div class="right">
       <el-menu
@@ -24,22 +25,29 @@
   </div>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
 import Menus from './menu.json';
 
 export default {
   data() {
     return {
       logo: require('@src/assets/logo.png'),
+      logoSmall: require('@src/assets/logoSmall.png'),
       menu: Menus,
     };
   },
   computed: {
+    ...mapState('site', ['isSideMenuCollapse']),
     activeIndex() {
       return `/${this.$route.fullPath.split('/')[1]}`;
     },
   },
   methods: {
+    ...mapActions('site', ['toggleSideMenuCollapse']),
     handleSelect() {},
+    onCollapse() {
+      this.toggleSideMenuCollapse();
+    },
   },
 };
 </script>
@@ -58,6 +66,9 @@ export default {
       img {
         height: 24px;
       }
+    }
+    .collapseClass {
+      width: 64px;
     }
     .right {
       color: #fff;

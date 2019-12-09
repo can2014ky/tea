@@ -5,7 +5,7 @@
         <HeaderNav/>
       </el-header>
       <el-container class="container-wrapper">
-        <el-aside width="200px">
+        <el-aside :width="width">
           <SideBar></SideBar>
         </el-aside>
         <el-main>
@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 import HeaderNav from './components/HeaderNav.vue';
 import SideBar from './components/SideBar.vue';
 import AppMain from './components/AppMain.vue';
@@ -25,6 +26,12 @@ export default {
     HeaderNav,
     SideBar,
     AppMain,
+  },
+  computed: {
+    ...mapState('site', ['isSideMenuCollapse']),
+    width() {
+      return this.isSideMenuCollapse ? '200px' : '64px';
+    },
   },
 };
 </script>

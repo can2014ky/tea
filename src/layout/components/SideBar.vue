@@ -1,10 +1,11 @@
 <template>
   <div class="sidebar-wrapper">
     <el-menu
-      :collapse="isCollapse"
+      :collapse="!isSideMenuCollapse"
       :default-active="activeIndex"
       unique-opened
       router
+      :collapse-transition="false"
       text-color="#fff"
       active-text-color="#ffd04b"
       background-color="#1f2b41"
@@ -31,15 +32,18 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex';
 import Menus from './menu.json';
 
 export default {
   data() {
     return {
-      isCollapse: false,
       menu: {},
       activeIndex: '',
     };
+  },
+  computed: {
+    ...mapState('site', ['isSideMenuCollapse']),
   },
   watch: {
     $route: {
