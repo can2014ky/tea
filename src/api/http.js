@@ -79,10 +79,9 @@ instance.interceptors.request.use((config) => {
 // 响应拦截
 instance.interceptors.response.use((response) => {
   if (response.status === 200) {
-    Promise.resolve(response);
-  } else {
-    Promise.reject(response);
+    return Promise.resolve(response.data);
   }
+  return Promise.reject(response);
 },
 (error) => {
   const { response } = error;

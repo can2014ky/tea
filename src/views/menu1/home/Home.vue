@@ -11,7 +11,7 @@ import cloneDeep from 'lodash/cloneDeep';
 export default {
   name: 'home',
   created() {
-    getBanner();
+    getBanner().then((res) => { console.log('banner request:', res); });
     const objects = [{ a: 1 }, { b: 2 }];
     const deep = cloneDeep(objects);
     console.log(333, deep);
