@@ -11,9 +11,9 @@ import cloneDeep from 'lodash/cloneDeep';
 export default {
   name: 'home',
   created() {
-    // this.getBanner();
-    this.getMockList();
-    this.getMockDetail();
+    this.getBanner();
+    // this.getMockList();
+    // this.getMockDetail();
     const objects = [{ a: 1 }, { b: 2 }];
     const deep = cloneDeep(objects);
     console.log('lodash test:', deep);

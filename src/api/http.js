@@ -44,7 +44,7 @@ const errorHandle = (status, other) => {
 };
 
 const defaultConfig = {
-  // baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: process.env.VUE_APP_BASE_API,
   timeout: 60000,
   headers: {
     'Content-type': 'application/json',
