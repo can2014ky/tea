@@ -1,5 +1,6 @@
 const os = require('os');
 const path = require('path');
+const mockdata = require('./src/mock/response.json');
 
 const resolve = dir => path.join(__dirname, dir);
 
@@ -15,14 +16,28 @@ module.exports = {
   parallel: os.cpus().length > 1,
   devServer: {
     open: true,
-    proxy: {
-      '/api': {
-        target: process.env.VUE_APP_PROXY_BASE_API,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': '',
-        },
-      },
+    // proxy: {
+    //   '/api': {
+    //     target: process.env.VUE_APP_PROXY_BASE_API,
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': '',
+    //     },
+    //   },
+    // },
+    before(app) {
+      app.get('/mock/list/', (_req, res) => {
+        res.json({
+          code: 200,
+          data: mockdata,
+        });
+      });
+      app.get('/mock/detail/', (_req, res) => {
+        res.json({
+          code: 200,
+          data: mockdata,
+        });
+      });
     },
   },
   chainWebpack: (config) => {

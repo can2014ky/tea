@@ -5,16 +5,32 @@
 </template>
 
 <script>
-import { getBanner } from '@src/api/request/menu1';
+import { getBanner, getMockList, getMockDetail } from '@src/api/request/menu1';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default {
   name: 'home',
   created() {
-    getBanner().then((res) => { console.log('banner request:', res); });
+    // this.getBanner();
+    this.getMockList();
+    this.getMockDetail();
     const objects = [{ a: 1 }, { b: 2 }];
     const deep = cloneDeep(objects);
-    console.log(333, deep);
+    console.log('lodash test:', deep);
+  },
+  methods: {
+    async getBanner() {
+      const res = await getBanner();
+      console.log('banner request:', res);
+    },
+    async getMockList() {
+      const res = await getMockList();
+      console.log('mock list request:', res);
+    },
+    async getMockDetail() {
+      const res = await getMockDetail();
+      console.log('mock detail request:', res);
+    },
   },
 };
 </script>
