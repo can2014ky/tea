@@ -18,7 +18,7 @@ const actions = {
   },
   toggleTheme({ commit }, status) {
     commit('THEME_CLASS_NAME', status);
-    document.body.className = status;
+    // document.body.className = status;
   },
 };
 

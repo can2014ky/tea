@@ -49,9 +49,17 @@ export default {
     };
   },
   computed: {
-    ...mapState('site', ['isSideMenuCollapse']),
+    ...mapState('site', ['isSideMenuCollapse', 'themeClassName']),
     activeIndex() {
       return `/${this.$route.fullPath.split('/')[1]}`;
+    },
+  },
+  watch: {
+    themeClassName: {
+      handler(val) {
+        document.body.className = val;
+      },
+      immediate: true,
     },
   },
   methods: {
