@@ -20,7 +20,19 @@
         >{{item.title}}
         </el-menu-item>
       </el-menu>
-      <span>登录</span>
+      <div>
+        <el-dropdown trigger="click" @command="handleCommand">
+          <span class="dropdown">
+            主题
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="theme-default">默认</el-dropdown-item>
+            <el-dropdown-item command="theme-red">红色</el-dropdown-item>
+            <el-dropdown-item command="theme-green">绿色</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <span>登录</span>
+      </div>
     </div>
   </div>
 </template>
@@ -43,10 +55,13 @@ export default {
     },
   },
   methods: {
-    ...mapActions('site', ['toggleSideMenuCollapse']),
+    ...mapActions('site', ['toggleSideMenuCollapse', 'toggleTheme']),
     handleSelect() {},
     onCollapse() {
       this.toggleSideMenuCollapse();
+    },
+    handleCommand(command) {
+      this.toggleTheme(command);
     },
   },
 };
@@ -71,12 +86,18 @@ export default {
       width: 64px;
     }
     .right {
+      font-size: 14px;
       color: #fff;
       line-height: 60px;
       padding-right: 18px;
       flex: 1;
       display: flex;
       justify-content: space-between;
+      .dropdown {
+        color: #fff;
+        margin-right: 20px;
+        cursor: pointer;
+      }
     }
   }
 </style>
