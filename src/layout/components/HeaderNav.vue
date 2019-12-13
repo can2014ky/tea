@@ -31,7 +31,11 @@
             <el-dropdown-item command="theme-green">绿色</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-select class="select-lang" v-model="$i18n.locale" placeholder="请选择语言">
+        <el-select
+          class="select-lang"
+          placeholder="请选择语言"
+          v-model="$i18n.locale"
+          @change="onChangeLocalLanguage">
           <el-option
             v-for="item in langs"
             :key="item"
@@ -58,7 +62,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('site', ['isSideMenuCollapse', 'themeClassName']),
+    ...mapState('site', ['isSideMenuCollapse', 'themeClassName', 'localLanguage']),
     activeIndex() {
       return `/${this.$route.fullPath.split('/')[1]}`;
     },
@@ -72,7 +76,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions('site', ['toggleSideMenuCollapse', 'toggleTheme']),
+    ...mapActions('site', ['toggleSideMenuCollapse', 'toggleTheme', 'toggleLocalLanguage']),
     handleSelect() {},
     onCollapse() {
       this.toggleSideMenuCollapse();
@@ -80,6 +84,12 @@ export default {
     handleCommand(command) {
       this.toggleTheme(command);
     },
+    onChangeLocalLanguage(val) {
+      this.toggleLocalLanguage(val);
+    },
+  },
+  created() {
+    this.$i18n.locale = this.localLanguage;
   },
 };
 </script>

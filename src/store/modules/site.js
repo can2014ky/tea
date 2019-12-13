@@ -1,6 +1,7 @@
 const stat = {
   isSideMenuCollapse: true,
   themeClassName: 'theme-default',
+  localLanguage: 'zh',
 };
 
 const mutations = {
@@ -9,6 +10,9 @@ const mutations = {
   },
   THEME_CLASS_NAME(state, status) {
     state.themeClassName = status;
+  },
+  LOCAL_LANGUAGE(state, status) {
+    state.localLanguage = status;
   },
 };
 
@@ -19,6 +23,9 @@ const actions = {
   toggleTheme({ commit }, status) {
     commit('THEME_CLASS_NAME', status);
     // document.body.className = status;
+  },
+  toggleLocalLanguage({ commit }, status) {
+    commit('LOCAL_LANGUAGE', status);
   },
 };
 
