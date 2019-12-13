@@ -31,6 +31,14 @@
             <el-dropdown-item command="theme-green">绿色</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
+        <el-select class="select-lang" v-model="$i18n.locale" placeholder="请选择语言">
+          <el-option
+            v-for="item in langs"
+            :key="item"
+            :label="item"
+            :value="item">
+          </el-option>
+        </el-select>
         <span>登录</span>
       </div>
     </div>
@@ -46,6 +54,7 @@ export default {
       logo: require('@src/assets/logo.png'),
       logoSmall: require('@src/assets/logoSmall.png'),
       menu: Menus,
+      langs: ['zh', 'en'],
     };
   },
   computed: {
@@ -103,8 +112,15 @@ export default {
       justify-content: space-between;
       .dropdown {
         color: #fff;
-        margin-right: 20px;
         cursor: pointer;
+      }
+      .select-lang {
+        width: 60px;
+        ::v-deep .el-input__inner {
+          color: #fff;
+          background-color: inherit;
+          border: none;
+        }
       }
     }
   }

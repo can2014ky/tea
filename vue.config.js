@@ -69,5 +69,11 @@ module.exports = {
     webpackBundleAnalyzer: {
       openAnalyzer: false,
     },
+    i18n: {
+      locale: 'zh',
+      fallbackLocale: 'en',
+      localeDir: ' i18n  ',
+      enableInSFC: true,
+    },
   },
 };

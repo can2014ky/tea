@@ -8,6 +8,10 @@
       <el-button type="danger">按钮</el-button>
       <el-button type="info">按钮</el-button>
     </div>
+    <div>
+      <span>国际化：</span>
+      <span>{{ $t('message') }}</span>
+    </div>
   </div>
 </template>
 
