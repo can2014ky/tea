@@ -3,7 +3,7 @@
     土豆
     <svg-icon icon-class="assetsConfig"></svg-icon>
     <svg-icon icon-class="pdf" class="pdf"></svg-icon>
-    <siemPagination></siemPagination>
+    <siemPagination type="full"></siemPagination>
     <siemDialog :dialogConfig="dialogConfig"></siemDialog>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       dialogConfig: {
-        dialogVisible: false,
+        dialogVisible: true,
       },
     };
   },
