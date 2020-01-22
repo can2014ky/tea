@@ -25,6 +25,8 @@
     "vuex-persistedstate": "^2.7.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@kazupon/vue-i18n-loader": "^0.3.0",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
@@ -50,7 +52,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
