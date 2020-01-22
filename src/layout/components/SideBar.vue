@@ -1,11 +1,11 @@
 <template>
   <div class="sidebar-wrapper">
     <el-menu
+      class="menu"
       :collapse="isSideMenuCollapse"
       :default-active="activeIndex"
       unique-opened
       router
-      :collapse-transition="false"
       text-color="#fff"
       active-text-color="#ffd04b"
       background-color="#1f2b41"
@@ -61,9 +61,11 @@ export default {
 <style lang="scss" scoped>
   .sidebar-wrapper {
     background-color: #1f2b41;
-    height: 100%;
     ::v-deep .el-menu {
       border-right: none;
+    }
+    .menu:not(.el-menu--collapse) {
+      width: 200px;
     }
   }
 </style>

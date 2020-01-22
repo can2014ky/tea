@@ -5,9 +5,7 @@
         <HeaderNav />
       </el-header>
       <el-container class="container-wrapper">
-        <el-aside :width="width">
-          <SideBar></SideBar>
-        </el-aside>
+        <SideBar></SideBar>
         <el-main>
           <el-breadcrumb
             v-if="paths[paths.length - 1].meta.showBreadcrumb !== false"
@@ -40,9 +38,6 @@ export default {
   },
   computed: {
     ...mapState('site', ['isSideMenuCollapse']),
-    width() {
-      return this.isSideMenuCollapse ? '64px' : '200px';
-    },
     paths() {
       return this.$route.matched;
     },
@@ -55,7 +50,6 @@ export default {
     padding: 0;
   }
   .container-wrapper {
-    min-height: calc(100vh - 60px);
     .breadcrumb {
       margin-bottom: 10px;
     }

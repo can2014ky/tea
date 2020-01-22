@@ -105,6 +105,9 @@ export default {
       font-size: 0;
       padding: 18px;
       box-sizing: border-box;
+      transition: width 0.2s ease-in;
+      opacity: 1;
+
       img {
         height: 24px;
       }
