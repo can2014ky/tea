@@ -2,13 +2,24 @@
   <div class="layout-wrapper">
     <el-container>
       <el-header>
-        <HeaderNav/>
+        <HeaderNav />
       </el-header>
       <el-container class="container-wrapper">
         <el-aside :width="width">
           <SideBar></SideBar>
         </el-aside>
         <el-main>
+          <el-breadcrumb
+            v-if="paths[paths.length - 1].meta.showBreadcrumb !== false"
+            separator-class="el-icon-arrow-right"
+            class="breadcrumb"
+          >
+            <template v-for="(path, index) in paths">
+              <el-breadcrumb-item v-if="path.meta.title" :to="path.path" :key="index">{{
+                path.meta.title
+              }}</el-breadcrumb-item>
+            </template>
+          </el-breadcrumb>
           <AppMain></AppMain>
         </el-main>
       </el-container>
@@ -32,16 +43,22 @@ export default {
     width() {
       return this.isSideMenuCollapse ? '64px' : '200px';
     },
+    paths() {
+      return this.$route.matched;
+    },
   },
 };
 </script>
 <style lang="scss" scoped>
-  .layout-wrapper {
-    ::v-deep .el-header {
-      padding: 0;
-    }
-    .container-wrapper {
-      min-height: calc(100vh - 60px);
+.layout-wrapper {
+  ::v-deep .el-header {
+    padding: 0;
+  }
+  .container-wrapper {
+    min-height: calc(100vh - 60px);
+    .breadcrumb {
+      margin-bottom: 10px;
     }
   }
+}
 </style>
