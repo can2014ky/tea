@@ -12,6 +12,10 @@
       <span>国际化：</span>
       <span>{{ $t('message') }}</span>
     </div>
+    <div>
+      <ve-line :data="chartData" :settings="chartSettings" width="800px"></ve-line>
+      <ve-histogram :data="chartData" :extend="chartExtend" width="800px"></ve-histogram>
+    </div>
   </div>
 </template>
 
@@ -21,6 +25,29 @@ import cloneDeep from 'lodash/cloneDeep';
 
 export default {
   name: 'home',
+  data() {
+    this.chartSettings = {
+      xAxisType: 'time',
+    };
+    this.chartExtend = {
+      series: {
+        barWidth: 10,
+      },
+      tooltip: {
+        trigger: 'none',
+      },
+    };
+    return {
+      chartData: {
+        columns: ['日期', '访问用户'],
+        rows: [
+          { 日期: '2018-01-01', 访问用户: 1393 },
+          { 日期: '2018-01-02', 访问用户: 3530 },
+          { 日期: '2018-01-03', 访问用户: 2923 },
+        ],
+      },
+    };
+  },
   created() {
     this.getBanner();
     // this.getMockList();
